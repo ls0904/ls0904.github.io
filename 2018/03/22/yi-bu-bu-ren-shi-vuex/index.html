@@ -5,9 +5,8 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="一步步认识Vuex, 星空下的颗粒">
-    <meta name="description" content="
-如图，Vuex看起来是一个仓库，一层一层得关系牵连，其实它就是一个专为vue.js管理得仓库。
-一、为什么需要使用Vuex呢？​        1、项目越写越大，功能越写越复杂，当vue.js应用程序遇到多个组件共享状态时，单向数据流得简">
+    <meta name="description" content="如图，Vuex看起来是一个仓库，一层一层得关系牵连，其实它就是一个专为vue.js管理得仓库。
+一、为什么需要使用Vuex呢？​        1、项目越写越大，功能越写越复杂，当vue.js应用程序遇到多个组件共享状态时，单向数据流得简洁">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -434,8 +433,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="%E4%B8%80%E6%AD%A5%E6%AD%A5%E8%AE%A4%E8%AF%86Vuex%5Cvuex%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%9B%BE.png" alt="vuex核心原理图"></p>
-<p>如图，<code>Vuex</code>看起来是一个仓库，一层一层得关系牵连，其实它就是一个专为<code>vue.js</code>管理得仓库。</p>
+                <p>如图，<code>Vuex</code>看起来是一个仓库，一层一层得关系牵连，其实它就是一个专为<code>vue.js</code>管理得仓库。</p>
 <h3 id="一、为什么需要使用Vuex呢？"><a href="#一、为什么需要使用Vuex呢？" class="headerlink" title="一、为什么需要使用Vuex呢？"></a>一、为什么需要使用<code>Vuex</code>呢？</h3><p>​        1、项目越写越大，功能越写越复杂，当<code>vue.js</code>应用程序遇到多个组件共享状态时，单向数据流得简洁性很容易被破坏。</p>
 <p>​        2、组件之间通信很复杂得情况下</p>
 <p>​        3、项目中使用了路由，并且路由页面组件中需要通信得时候。</p>
@@ -452,7 +450,6 @@
 <h3 id="三、如何将仓库中的数据拿到组件中去使用"><a href="#三、如何将仓库中的数据拿到组件中去使用" class="headerlink" title="三、如何将仓库中的数据拿到组件中去使用"></a>三、如何将仓库中的数据拿到组件中去使用</h3><p>​     <code>this.$store</code>就是仓库的实例对象</p>
 <p>​        1、直接使用this,$store的方式在组件template模板中使用（不推荐）</p>
 <p>​        2、组件中使用计算属性去拿仓库的数据</p>
-<p><img src="%E4%B8%80%E6%AD%A5%E6%AD%A5%E8%AE%A4%E8%AF%86Vuex%5Cclipboard.png" alt="clipboard"></p>
 <p>​        3、借助<code>vuex</code>提供的辅助函数<code>mapState</code></p>
 <p>​                <code>mapState([ ])</code>组件的<code>Computed</code>的<code>key</code>必须要跟<code>State</code>中的<code>key</code>一致</p>
 <p>​                <code>mapState ({ })</code>-组件的<code>Computed</code>的<code>key</code>可以自定义如</p>
@@ -692,10 +689,10 @@
 <script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
     let gitalk = new Gitalk({
-        clientID: '',
-        clientSecret: '',
-        repo: 'https://github.com/ls0904/ls0904.github.io.git',
-        owner: '',
+        clientID: 'bd2c84b9ec4f07ca52c9',
+        clientSecret: '8737958ecb40aba05e94af2ebe0de1198472718d',
+        repo: 'gitalk',
+        owner: 'ls0904',
         admin: "ls0904",
         id: '2018-03-22T14-51-26',
         distractionFreeMode: false  // Facebook-like distraction free mode
@@ -945,7 +942,7 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/ls0904/ls0904.github.io.git" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/ls0904" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fa fa-github"></i>
     </a>
 

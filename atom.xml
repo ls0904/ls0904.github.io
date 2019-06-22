@@ -74,7 +74,7 @@
     <link href="http://yoursite.com/2018/03/22/yi-bu-bu-ren-shi-vuex/"/>
     <id>http://yoursite.com/2018/03/22/yi-bu-bu-ren-shi-vuex/</id>
     <published>2018-03-22T06:51:26.000Z</published>
-    <updated>2019-06-22T07:19:56.052Z</updated>
+    <updated>2019-06-22T08:13:41.197Z</updated>
     
     <summary type="html">
     
@@ -82,7 +82,8 @@
       
         
         
-          &lt;p&gt;&lt;img src=&quot;%E4%B8%80%E6%AD%A5%E6%AD%A5%E8%AE%A4%E8%AF%86Vuex%5Cvuex%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%9B%BE.png&quot;
+          &lt;p&gt;如图，&lt;code&gt;Vuex&lt;/code&gt;看起来是一个仓库，一层一层得关系牵连，其实它就是一个专为&lt;code&gt;vue.js&lt;/code&gt;管理得仓库。&lt;/p&gt;
+&lt;h3 id=&quot;一、为什么需要使用Vuex呢？&quot;&gt;&lt;a href=&quot;#一、为什么需要使用Vuex呢？&quot;
         
       
     
