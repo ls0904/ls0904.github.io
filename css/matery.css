@@ -1792,3 +1792,10 @@ footer .copy-right {
     /* bg color = bg color under block */
     background: white;
 }
+/*鼠标样式*/
+  * {
+      cursor: url("../medias/default.cur"),auto!important
+  }
+  :active {
+      cursor: url("../medias/pointer.cur"),auto!important
+  }

@@ -4,8 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="garlly, 星空下的颗粒">
-    <meta name="description" content="garlly | 星空下的颗粒">
+    <meta name="keywords" content="一步步认识Vuex, 星空下的颗粒">
+    <meta name="description" content="
+如图，Vuex看起来是一个仓库，一层一层得关系牵连，其实它就是一个专为vue.js管理得仓库。
+一、为什么需要使用Vuex呢？​        1、项目越写越大，功能越写越复杂，当vue.js应用程序遇到多个组件共享状态时，单向数据流得简">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>garlly | 星空下的颗粒</title>
+    <title>一步步认识Vuex | 星空下的颗粒</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -275,13 +277,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        garlly
+                        一步步认识Vuex
                     </div>
                 </div>
             </div>
@@ -390,12 +392,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/vuex/" target="_blank">
+                                <span class="chip bg-color">-vuex</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/vuex/" class="post-category" target="_blank">
+                                vuex
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -403,7 +418,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-15
+                    2018-03-22
                 </div>
 
                 
@@ -419,7 +434,55 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <script>
+                <p><img src="%E4%B8%80%E6%AD%A5%E6%AD%A5%E8%AE%A4%E8%AF%86Vuex%5Cvuex%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%9B%BE.png" alt="vuex核心原理图"></p>
+<p>如图，<code>Vuex</code>看起来是一个仓库，一层一层得关系牵连，其实它就是一个专为<code>vue.js</code>管理得仓库。</p>
+<h3 id="一、为什么需要使用Vuex呢？"><a href="#一、为什么需要使用Vuex呢？" class="headerlink" title="一、为什么需要使用Vuex呢？"></a>一、为什么需要使用<code>Vuex</code>呢？</h3><p>​        1、项目越写越大，功能越写越复杂，当<code>vue.js</code>应用程序遇到多个组件共享状态时，单向数据流得简洁性很容易被破坏。</p>
+<p>​        2、组件之间通信很复杂得情况下</p>
+<p>​        3、项目中使用了路由，并且路由页面组件中需要通信得时候。</p>
+<p>​        4、项目遇到难点，写不下去得时候就该用<code>vuex</code>了。</p>
+<h3 id="二、Vuex的操作流程："><a href="#二、Vuex的操作流程：" class="headerlink" title="二、Vuex的操作流程："></a>二、<code>Vuex</code>的操作流程：</h3><p>​        1、要先创建仓库，将我们项目中组件上需要恭喜的数据放置到我们仓库中state的位置/</p>
+<p>​        2、组件要使用仓库中state的数据，就从仓库里面拿出来用。</p>
+<p>​        3、要修改仓库中state的数据，</p>
+<p>​                    1、commit(提交) mutation</p>
+<p>​                    2、dispath（派发） action -> commit mutation</p>
+<p>​        4、然后仓库中state数据发生变化，组件就会得到更新</p>
+<h4 id="vuex的使用："><a href="#vuex的使用：" class="headerlink" title="vuex的使用："></a><code>vuex</code>的使用：</h4><p>​                1、安装vuex <code>npm install --save vuex</code></p>
+<p>​                2、项目<code>src/store/index.js</code>文件中创建仓库的实例对象</p>
+<p>​                3、要<code>main.js中new Vue</code>实例的地方 配置一个<code>store</code>的选项，选项的值就是第二步中实例的对象。</p>
+<h3 id="三、如何将仓库中的数据拿到组件中去使用"><a href="#三、如何将仓库中的数据拿到组件中去使用" class="headerlink" title="三、如何将仓库中的数据拿到组件中去使用"></a>三、如何将仓库中的数据拿到组件中去使用</h3><p>​     <code>this.$store</code>就是仓库的实例对象</p>
+<p>​        1、直接使用this,$store的方式在组件template模板中使用（不推荐）</p>
+<p>​        2、组件中使用计算属性去拿仓库的数据</p>
+<p><img src="%E4%B8%80%E6%AD%A5%E6%AD%A5%E8%AE%A4%E8%AF%86Vuex%5Cclipboard.png" alt="clipboard"></p>
+<p>​        3、借助<code>vuex</code>提供的辅助函数<code>mapState</code></p>
+<p>​                <code>mapState([ ])</code>组件的<code>Computed</code>的<code>key</code>必须要跟<code>State</code>中的<code>key</code>一致</p>
+<p>​                <code>mapState ({ })</code>-组件的<code>Computed</code>的<code>key</code>可以自定义如</p>
+<p>​        4、将组件自身的<code>computed</code>与<code>State</code>的<code>computed</code>结合        …为展开运算符</p>
+<pre class=" language-vue"><code class="language-vue">computed: {
+  ...mapState(['title']),
+  firstName () {
+    return this.name.split('')[0]
+  }
+},</code></pre>
+<h3 id="四、如何修改仓库中的数据"><a href="#四、如何修改仓库中的数据" class="headerlink" title="四、如何修改仓库中的数据"></a>四、如何修改仓库中的数据</h3><ol>
+<li>先需要在仓库中定义我们的<code>mutation</code></li>
+<li>在组件中提交这个<code>mutaion</code><ol>
+<li><code>this.$store.commit</code>(‘mutaion的名字’, 要传递的参数)</li>
+<li><code>this.$store.commit</code>({ type: mutaion的名字, 其余的参数 })</li>
+<li><code>mapMutations</code> 辅助函数</li>
+</ol>
+</li>
+<li><code>mutation</code>不允许异步代码的</li>
+</ol>
+<h3 id="五、如何在仓库中-写异步代码-actions"><a href="#五、如何在仓库中-写异步代码-actions" class="headerlink" title="五、如何在仓库中 写异步代码 (actions)"></a>五、如何在仓库中 写异步代码 (actions)</h3><ol>
+<li>每一个action里面都可以写异步代码，但是action并不能修改state中的数据，真正修改数据的还是 mutaction</li>
+<li>在组件中如何派发这个action<ol>
+<li><code>this.$store.dispatch</code>(‘action的名字’)</li>
+<li>借助<code>mapActions</code> 辅助函数</li>
+</ol>
+</li>
+</ol>
+<p>至此，<code>vuex</code>中的常用的一些入门知识使用算是简单的分享完了，当然了，相信这些只是一些皮毛！只能说是给予刚接触<code>vuex</code>的初学者一个参考与了解吧！有哪里不明白的或不对的，留言下，咱们可以一起讨论、共同学习！</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -592,9 +655,9 @@
             </div>
             <br>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
-                    《garlly》
+                    《一步步认识Vuex》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/garlly/index.html" property="cc:attributionName" rel="cc:attributionURL">
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/03/22/yi-bu-bu-ren-shi-vuex/" property="cc:attributionName" rel="cc:attributionURL">
                 Ls-tomatoes
             </a> 采用
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
@@ -634,7 +697,7 @@
         repo: 'https://github.com/ls0904/ls0904.github.io.git',
         owner: '',
         admin: "ls0904",
-        id: '2019-06-15T10-34-03',
+        id: '2018-03-22T14-51-26',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -657,40 +720,47 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/garlly/index.html">
+                <a href="/2018/06/19/react-lei-zu-jian-yu-han-shu-zu-jian-de-qu-bie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="garlly">
+                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="React中类组件与函数组件的区别">
                         
-                        <span class="card-title">garlly</span>
+                        <span class="card-title">React中类组件与函数组件的区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            React类组件与函数组件的区别
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-15
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-06-19
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Ls-tomatoes
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/React/" class="post-category" target="_blank">
+                                    React
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/react/" target="_blank">
+                        <span class="chip bg-color">-react</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -701,37 +771,46 @@
                 本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
             </div>
             <div class="card">
-                <a href="/garlly/index.html">
+                <a href="/2018/03/22/yi-bu-bu-ren-shi-vuex/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="garlly">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="一步步认识Vuex">
                         
-                        <span class="card-title">garlly</span>
+                        <span class="card-title">一步步认识Vuex</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            一起来了解了解vuex是如何运用的
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-15
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Ls-tomatoes
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/vuex/" class="post-category" target="_blank">
+                                    vuex
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vuex/" target="_blank">
+                        <span class="chip bg-color">-vuex</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

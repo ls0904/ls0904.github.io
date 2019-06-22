@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-15T03:44:01.264Z</updated>
+  <updated>2019-06-22T06:41:08.342Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>一步步让你认识Vuex</title>
-    <link href="http://yoursite.com/2019/06/08/yi-bu-bu-rang-ni-ren-shi-vuex/"/>
-    <id>http://yoursite.com/2019/06/08/yi-bu-bu-rang-ni-ren-shi-vuex/</id>
-    <published>2019-06-08T03:42:28.000Z</published>
-    <updated>2019-06-15T03:44:01.264Z</updated>
+    <title>react入门</title>
+    <link href="http://yoursite.com/2019/06/17/react-ru-men/"/>
+    <id>http://yoursite.com/2019/06/17/react-ru-men/</id>
+    <published>2019-06-17T13:43:08.000Z</published>
+    <updated>2019-06-22T06:41:08.342Z</updated>
     
     <summary type="html">
     
@@ -29,11 +29,66 @@
       
         
         
-          &lt;p&gt;&lt;img src=&quot;%E4%B8%80%E6%AD%A5%E6%AD%A5%E8%AE%A9%E4%BD%A0%E8%AE%A4%E8%AF%86Vuex%5Cvuex%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%9B%BE.png&quot;
+          &lt;h1 id=&quot;JSX简介&quot;&gt;&lt;a href=&quot;#JSX简介&quot; class=&quot;headerlink&quot; title=&quot;JSX简介&quot;&gt;&lt;/a&gt;JSX简介&lt;/h1&gt;&lt;blockquote&gt;
+&lt;pre class=&quot; language-html&quot;&gt;&lt;code
         
       
     
     </summary>
+    
+      <category term="react" scheme="http://yoursite.com/categories/react/"/>
+    
+    
+      <category term="-react" scheme="http://yoursite.com/tags/react/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React中类组件与函数组件的区别</title>
+    <link href="http://yoursite.com/2018/06/19/react-lei-zu-jian-yu-han-shu-zu-jian-de-qu-bie/"/>
+    <id>http://yoursite.com/2018/06/19/react-lei-zu-jian-yu-han-shu-zu-jian-de-qu-bie/</id>
+    <published>2018-06-19T13:55:09.000Z</published>
+    <updated>2019-06-22T06:41:08.340Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre class=&quot; language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token
+        
+      
+    
+    </summary>
+    
+      <category term="React" scheme="http://yoursite.com/categories/React/"/>
+    
+    
+      <category term="-react" scheme="http://yoursite.com/tags/react/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一步步认识Vuex</title>
+    <link href="http://yoursite.com/2018/03/22/yi-bu-bu-ren-shi-vuex/"/>
+    <id>http://yoursite.com/2018/03/22/yi-bu-bu-ren-shi-vuex/</id>
+    <published>2018-03-22T06:51:26.000Z</published>
+    <updated>2019-06-22T07:19:56.052Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;%E4%B8%80%E6%AD%A5%E6%AD%A5%E8%AE%A4%E8%AF%86Vuex%5Cvuex%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E5%9B%BE.png&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="vuex" scheme="http://yoursite.com/categories/vuex/"/>
     
     
       <category term="-vuex" scheme="http://yoursite.com/tags/vuex/"/>

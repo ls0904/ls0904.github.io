@@ -4,8 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="garlly, 星空下的颗粒">
-    <meta name="description" content="garlly | 星空下的颗粒">
+    <meta name="keywords" content="React中类组件与函数组件的区别, 星空下的颗粒">
+    <meta name="description" content="class Hello extends React.Component {     // 用类组件定义一个Hello组件
+   constructor (props){
+    super(props);
+    this.state = ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>garlly | 星空下的颗粒</title>
+    <title>React中类组件与函数组件的区别 | 星空下的颗粒</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -275,13 +278,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/27.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        garlly
+                        React中类组件与函数组件的区别
                     </div>
                 </div>
             </div>
@@ -390,12 +393,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/react/" target="_blank">
+                                <span class="chip bg-color">-react</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/React/" class="post-category" target="_blank">
+                                React
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -403,7 +419,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-15
+                    2018-06-19
                 </div>
 
                 
@@ -419,7 +435,33 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <script>
+                <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">class</span> <span class="token class-name">Hello</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>     <span class="token comment" spellcheck="true">// 用类组件定义一个Hello组件</span>
+   constructor <span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+render <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span><span class="token punctuation">(</span>
+
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">Welcome</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>                <span class="token comment" spellcheck="true">//用函数组件定义个一个Welcome组件</span>
+  <span class="token keyword">return</span> <span class="token operator">&lt;</span>h1<span class="token operator">></span>Hello<span class="token punctuation">,</span> <span class="token punctuation">{</span>props<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<ol>
+<li>函数组件看似只是一个返回值是DOM结构的函数，其实它的背后是无状态组件（Stateless Components）的思想。<strong>函数组件中，你无法使用State，也无法使用组件的生命周期方法，</strong>这就决定了函数组件都是展示性组件（Presentational Components），接收Props，渲染DOM，而不关注其他逻辑。</li>
+<li>函数组件中没有this。所以你再也不需要考虑this带来的烦恼。而在类组件中，你依然要记得绑定this这个琐碎的事情。而要想改变类组件中this得指向，你需要用bing方法去修改，而不能使用apply、call方法。因为后者会立即执行，只有bind是返回一个回调函数。</li>
+<li>函数组件更容易理解。当你看到一个函数组件时，你就知道它的功能只是接收属性，渲染页面，它不执行与UI无关的逻辑处理，它只是一个纯函数。而不用在意它返回的DOM结构有多复杂。</li>
+<li>性能。目前React还是会把函数组件在内部转换成类组件，所以使用函数组件和使用类组件在性能上并无大的差异。但是，React官方已承诺，未来将会优化函数组件的性能，因为<strong>函数组件不需要考虑组件状态和组件生命周期方法中的各种比较校验</strong>，所以有很大的性能提升空间。</li>
+<li>函数组件迫使你思考最佳实践。这是最重要的一点。组件的主要职责是UI渲染，理想情况下，所有的组件都是展示性组件，每个页面都是由这些展示性组件组合而成。如果一个组件是函数组件，那么它当然满足这个要求。所以牢记函数组件的概念，可以让你在写组件时，先思考这个组件应不应该是展示性组件。更多的展示性组件意味着更多的组件有更简洁的结构，更多的组件能被更好的复用。</li>
+<li>类组件可以帮帮助我们实现动态数据的渲染，本身使用得JSX语法可以采用虚拟DOM得方法减少去操作真实DOM得操作可以达到性能优化得作用，同时也可以提高组件得复用性。</li>
+</ol>
+<p>是由用类组件还是函数组件你可以按照自己得需求来，当你需要动态得去渲染数据得时候那么你就该用类组件了。如果你只需要去实现某个属性那么你可以考虑用函数组件更为简单一些。</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -592,9 +634,9 @@
             </div>
             <br>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
-                    《garlly》
+                    《React中类组件与函数组件的区别》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/garlly/index.html" property="cc:attributionName" rel="cc:attributionURL">
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/06/19/react-lei-zu-jian-yu-han-shu-zu-jian-de-qu-bie/" property="cc:attributionName" rel="cc:attributionURL">
                 Ls-tomatoes
             </a> 采用
             <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
@@ -634,7 +676,7 @@
         repo: 'https://github.com/ls0904/ls0904.github.io.git',
         owner: '',
         admin: "ls0904",
-        id: '2019-06-15T10-34-03',
+        id: '2018-06-19T21-55-09',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -657,40 +699,47 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/garlly/index.html">
+                <a href="/2019/06/17/react-ru-men/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="garlly">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="react入门">
                         
-                        <span class="card-title">garlly</span>
+                        <span class="card-title">react入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            让我们一起来学习学习react框架！
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-15
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-17
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Ls-tomatoes
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/react/" class="post-category" target="_blank">
+                                    react
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/react/" target="_blank">
+                        <span class="chip bg-color">-react</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -698,40 +747,48 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/garlly/index.html">
+                <a href="/2018/03/22/yi-bu-bu-ren-shi-vuex/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="garlly">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="一步步认识Vuex">
                         
-                        <span class="card-title">garlly</span>
+                        <span class="card-title">一步步认识Vuex</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            一起来了解了解vuex是如何运用的
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-15
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Ls-tomatoes
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/vuex/" class="post-category" target="_blank">
+                                    vuex
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vuex/" target="_blank">
+                        <span class="chip bg-color">-vuex</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
