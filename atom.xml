@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-22T06:41:08.342Z</updated>
+  <updated>2019-07-13T11:29:19.269Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>react入门</title>
-    <link href="http://yoursite.com/2019/06/17/react-ru-men/"/>
-    <id>http://yoursite.com/2019/06/17/react-ru-men/</id>
-    <published>2019-06-17T13:43:08.000Z</published>
-    <updated>2019-06-22T06:41:08.342Z</updated>
+    <title>vue+node实现拖拽上传图片</title>
+    <link href="http://yoursite.com/2019/04/28/vue-node-shi-xian-tuo-zhuai-shang-chuan-tu-pian/"/>
+    <id>http://yoursite.com/2019/04/28/vue-node-shi-xian-tuo-zhuai-shang-chuan-tu-pian/</id>
+    <published>2019-04-28T11:24:23.000Z</published>
+    <updated>2019-07-13T11:29:19.269Z</updated>
     
     <summary type="html">
     
@@ -29,14 +29,178 @@
       
         
         
-          &lt;h1 id=&quot;JSX简介&quot;&gt;&lt;a href=&quot;#JSX简介&quot; class=&quot;headerlink&quot; title=&quot;JSX简介&quot;&gt;&lt;/a&gt;JSX简介&lt;/h1&gt;&lt;blockquote&gt;
-&lt;pre class=&quot; language-html&quot;&gt;&lt;code
+          &lt;h3 id=&quot;一、知识点&quot;&gt;&lt;a href=&quot;#一、知识点&quot; class=&quot;headerlink&quot; title=&quot;一、知识点&quot;&gt;&lt;/a&gt;一、知识点&lt;/h3&gt;&lt;p&gt;实现拖拽上传需要用到的知识点如下：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;前端&lt;/strong&gt;&lt;br&gt;
         
       
     
     </summary>
     
-      <category term="react" scheme="http://yoursite.com/categories/react/"/>
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="-vue -node" scheme="http://yoursite.com/tags/vue-node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>学习Ajax</title>
+    <link href="http://yoursite.com/2019/03/13/xue-xi-ajax/"/>
+    <id>http://yoursite.com/2019/03/13/xue-xi-ajax/</id>
+    <published>2019-03-13T14:52:07.000Z</published>
+    <updated>2019-07-13T11:16:57.235Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;AJAX的学习、&quot;&gt;&lt;a href=&quot;#AJAX的学习、&quot; class=&quot;headerlink&quot; title=&quot;AJAX的学习、&quot;&gt;&lt;/a&gt;AJAX的学习、&lt;/h2&gt;&lt;h3 id=&quot;一，XHR简介&quot;&gt;&lt;a href=&quot;#一，XHR简介&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="-Ajax" scheme="http://yoursite.com/tags/Ajax/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>webpack配置(下)</title>
+    <link href="http://yoursite.com/2019/02/17/webpack-pei-zhi-xia/"/>
+    <id>http://yoursite.com/2019/02/17/webpack-pei-zhi-xia/</id>
+    <published>2019-02-17T12:29:32.000Z</published>
+    <updated>2019-07-13T10:51:19.140Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;使用&lt;code&gt;typescript&lt;/code&gt;时需要在根目录下创建一个&lt;code&gt;tsconfig.js&lt;/code&gt;的文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;关于&lt;code&gt;.babelrc&lt;/code&gt;的配置&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接在&lt;co
+        
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="-webpack" scheme="http://yoursite.com/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>webpack配置(上)</title>
+    <link href="http://yoursite.com/2019/02/03/webpack-pei-zhi-shang/"/>
+    <id>http://yoursite.com/2019/02/03/webpack-pei-zhi-shang/</id>
+    <published>2019-02-03T11:24:55.000Z</published>
+    <updated>2019-07-13T10:36:31.954Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;code&gt;clean-webpack-plugin&lt;/code&gt;的正确使用姿势：&lt;/p&gt;
+&lt;pre class=&quot; language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token
+        
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="-webpack" scheme="http://yoursite.com/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>web开发的跨域问题详解</title>
+    <link href="http://yoursite.com/2019/01/24/web-kai-fa-de-kua-yu-wen-ti-xiang-jie/"/>
+    <id>http://yoursite.com/2019/01/24/web-kai-fa-de-kua-yu-wen-ti-xiang-jie/</id>
+    <published>2019-01-24T10:02:24.000Z</published>
+    <updated>2019-07-13T10:22:33.897Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;应该都遇到过跨域的问题，当我们从一个域名向另一个域名发送 Ajax 请求的时候，打开浏览器控制台就会看到跨域错误，今天我们就来聊聊跨域的问题。&lt;/p&gt;
+&lt;h2 id=&quot;1-浏览器的同源策略&quot;&gt;&lt;a href=&quot;#1-浏览器的同源策略&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="-跨域" scheme="http://yoursite.com/tags/%E8%B7%A8%E5%9F%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git使用总结</title>
+    <link href="http://yoursite.com/2018/07/25/git-shi-yong-zong-jie/"/>
+    <id>http://yoursite.com/2018/07/25/git-shi-yong-zong-jie/</id>
+    <published>2018-07-25T09:34:23.000Z</published>
+    <updated>2019-07-13T11:18:57.321Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;git的常用指令：&quot;&gt;&lt;a href=&quot;#git的常用指令：&quot; class=&quot;headerlink&quot; title=&quot;git的常用指令：&quot;&gt;&lt;/a&gt;git的常用指令：&lt;/h2&gt;&lt;p&gt;​    &lt;/p&gt;
+&lt;pre class=&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="-Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react在前端开发中的优势体现</title>
+    <link href="http://yoursite.com/2018/07/01/react-zai-qian-duan-kai-fa-zhong-de-you-shi-ti-xian/"/>
+    <id>http://yoursite.com/2018/07/01/react-zai-qian-duan-kai-fa-zhong-de-you-shi-ti-xian/</id>
+    <published>2018-07-01T11:31:16.000Z</published>
+    <updated>2019-07-13T12:05:28.584Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;话不多说，直接进入正题，react的核心点：&quot;&gt;&lt;a href=&quot;#话不多说，直接进入正题，react的核心点：&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
       <category term="-react" scheme="http://yoursite.com/tags/react/"/>
@@ -48,7 +212,7 @@
     <link href="http://yoursite.com/2018/06/19/react-lei-zu-jian-yu-han-shu-zu-jian-de-qu-bie/"/>
     <id>http://yoursite.com/2018/06/19/react-lei-zu-jian-yu-han-shu-zu-jian-de-qu-bie/</id>
     <published>2018-06-19T13:55:09.000Z</published>
-    <updated>2019-06-22T06:41:08.340Z</updated>
+    <updated>2019-07-13T11:18:58.250Z</updated>
     
     <summary type="html">
     
@@ -62,10 +226,36 @@
     
     </summary>
     
-      <category term="React" scheme="http://yoursite.com/categories/React/"/>
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
       <category term="-react" scheme="http://yoursite.com/tags/react/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>yarn的基本用法</title>
+    <link href="http://yoursite.com/2018/04/05/yarn-de-ji-ben-yong-fa/"/>
+    <id>http://yoursite.com/2018/04/05/yarn-de-ji-ben-yong-fa/</id>
+    <published>2018-04-05T08:49:52.000Z</published>
+    <updated>2019-07-13T11:18:43.472Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;yarn的基本用法：&quot;&gt;&lt;a href=&quot;#yarn的基本用法：&quot; class=&quot;headerlink&quot; title=&quot;yarn的基本用法：&quot;&gt;&lt;/a&gt;yarn的基本用法：&lt;/h1&gt;&lt;pre&gt;&lt;code&gt; ##
+        
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="-yarn" scheme="http://yoursite.com/tags/yarn/"/>
     
   </entry>
   
@@ -74,7 +264,7 @@
     <link href="http://yoursite.com/2018/03/22/yi-bu-bu-ren-shi-vuex/"/>
     <id>http://yoursite.com/2018/03/22/yi-bu-bu-ren-shi-vuex/</id>
     <published>2018-03-22T06:51:26.000Z</published>
-    <updated>2019-06-22T08:13:41.197Z</updated>
+    <updated>2019-07-13T11:23:42.042Z</updated>
     
     <summary type="html">
     
@@ -89,7 +279,7 @@
     
     </summary>
     
-      <category term="vuex" scheme="http://yoursite.com/categories/vuex/"/>
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
       <category term="-vuex" scheme="http://yoursite.com/tags/vuex/"/>

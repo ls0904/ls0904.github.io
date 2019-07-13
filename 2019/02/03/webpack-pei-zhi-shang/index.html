@@ -1,0 +1,1089 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="webpack配置(上), 星空下的颗粒">
+    <meta name="description" content="clean-webpack-plugin的正确使用姿势：
+const { CleanWebpackPlugin } = require(&#39;clean-webpack-plugin&#39;);
+答应我，不会用的去看看文档好吧。。。
+optimiza">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>webpack配置(上) | 星空下的颗粒</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">星空下的颗粒</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/garlly" class="waves-effect waves-light">
+            
+            <i class="fa fa-bicycle"></i>
+            
+            <span>garlly</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">星空下的颗粒</div>
+        <div class="logo-desc">
+            
+            让自己在这个博客里面记录自己的一些见解，一些在代码中的疑难以及收获。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/garlly" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bicycle"></i>
+                
+                garlly
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/ls0904/ls0904.github.io.git" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/ls0904/ls0904.github.io.git" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/31.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        webpack配置(上)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/webpack/" target="_blank">
+                                <span class="chip bg-color">-webpack</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/工具/" class="post-category" target="_blank">
+                                工具
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-02-03
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><code>clean-webpack-plugin</code>的正确使用姿势：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span> CleanWebpackPlugin <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'clean-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>答应我，不会用的去看看文档好吧。。。</p>
+<p><code>optimization</code>里面的相关配置：</p>
+<ul>
+<li>设置<code>minChunks</code>指的是有几个<code>entrypoint</code>进去形成的<code>chunk</code>用到了该<code>module</code>，如果达到了该值就会进行分割。</li>
+<li><code>chunks</code>的参数有<code>async</code>（默认，对异步引入的<code>module</code>进行分割），<code>initial</code>（对同步引入的<code>module</code>进行分割），<code>all</code>（对所有形式引入的<code>module</code>进行分割）</li>
+</ul>
+<pre class=" language-html"><code class="language-html">webpack4`中的`production`模式其实已经默认采用了`uglifyjs</code></pre>
+<p>在进行异步引入操作时需要引进新的插件<code>npm install @babel/plugin-syntax-dynamic-import -D</code>，并修改<code>babel</code>配置：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
+    <span class="token string">"presets"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"@babel/preset-env"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token string">"corejs"</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+        <span class="token string">"useBuiltIns"</span><span class="token punctuation">:</span> <span class="token string">"usage"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">"plugins"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"@babel/plugin-syntax-dynamic-import"</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+<pre><code>magic comments</code></pre><ul>
+<li><code>webpackChunkname</code></li>
+<li><code>webpackPrefetch</code>: <code>prefetch chunk</code> 会在父 <code>chunk</code> 加载结束后开始加载。</li>
+<li><code>webpackPreload</code>: <code>preload chunk</code> 会在父 <code>chunk</code> 加载时，以并行方式开始加载。</li>
+</ul>
+<p><code>package.json</code>里面的<code>scripts</code>配置：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"scripts"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"build"</span><span class="token punctuation">:</span> <span class="token string">"webpack --config ./config/webpack.config.js"</span><span class="token punctuation">,</span>
+    <span class="token string">"dev"</span><span class="token punctuation">:</span> <span class="token string">"webpack-dev-server --config ./config/webpack.config.js"</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
+<p>设置<code>postcss</code>需要几步操作：</p>
+<ul>
+<li><code>npm install postcss-loader autoprefixer -D</code></li>
+<li>在根目录下添加<code>postcss.config.js</code>，并添加以下代码：</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript">    module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+        plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'autoprefixer'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span></code></pre>
+<ul>
+<li>修改<code>webpack.config.js</code>里面的配置：</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript">    <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.(sass|scss)$/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'style-loader'</span><span class="token punctuation">,</span><span class="token string">'css-loader'</span><span class="token punctuation">,</span><span class="token string">'sass-loader'</span><span class="token punctuation">,</span><span class="token string">'postcss-loader'</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">// 顺序不能变</span>
+    <span class="token punctuation">}</span></code></pre>
+<p>设置<code>css</code>模块的模块化：</p>
+<ul>
+<li>修改<code>webpack.config.js</code>的配置：</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript">    <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.scss$/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'style-loader'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            loader<span class="token punctuation">:</span> <span class="token string">'css-loader'</span><span class="token punctuation">,</span>
+            options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                modules<span class="token punctuation">:</span> <span class="token boolean">true</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+        <span class="token string">'sass-loader'</span><span class="token punctuation">,</span> <span class="token string">'postcss-loader'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span></code></pre>
+<ul>
+<li>修改<code>index.js</code>里面引入<code>css</code>文件的方式：原理其实就是在打包<code>css</code>文件的时候修改以下<code>css</code>文件里面的类名来防止命名的冲突，如此一来使用时就需要动态的使用类名了</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript">    <span class="token keyword">import</span> style <span class="token keyword">from</span> <span class="token string">'./index.scss'</span><span class="token punctuation">;</span>
+    document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.d2'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>style<span class="token punctuation">.</span>d2<span class="token punctuation">)</span></code></pre>
+<p>配置sourceMap：</p>
+<ul>
+<li><code>source-map</code>: 最大而全，会生成独立的<code>map</code>文件，精确到行和列，打包速度慢</li>
+<li><code>cheap-sourse-map</code>: 相对于上面这种区别在于映射到行为止，打包速度快一些，也会产生独立的<code>map</code>文件</li>
+<li><code>inline-source-map</code>: 映射文件以 <code>base64</code> 格式编码，加在 <code>bundle</code> 文件最后，不产生独立的 <code>map</code> 文件。加入 <code>map</code> 文件后，我们可以明显的看到包体积变大了；</li>
+<li><code>cheap-module-eval-source-map</code>: 这个一般是开发环境（<code>dev</code>）推荐使用，在构建速度报错提醒上做了比较好的均衡。</li>
+<li><code>cheap-module-source-map</code>: 一般来说，生产环境是不配 <code>source-map</code> 的，如果想捕捉线上的代码报错，我们可以用这个</li>
+</ul>
+<blockquote>
+<p><code>eval</code>: 打包后的模块都使用 <code>eval()</code> 执行，行映射可能不准；不产生独立的 <code>map</code> 文件</p>
+</blockquote>
+<blockquote>
+<pre><code>cheap`: `map` 映射只显示行不显示列，忽略源自 `loader` 的 `source map</code></pre></blockquote>
+<blockquote>
+<p><code>inline</code>: 映射文件以 <code>base64</code> 格式编码，加在 <code>bundle</code> 文件最后，不产生独立的 <code>map</code> 文件</p>
+</blockquote>
+<blockquote>
+<p><code>module</code>: 增加对 <code>loader</code> <code>source map</code> 和第三方模块的映射</p>
+</blockquote>
+<p><code>webpack</code>可视化打包结果：</p>
+<pre class=" language-javascript"><code class="language-javascript">    npm install webpack<span class="token operator">-</span>bundle<span class="token operator">-</span>analyzer <span class="token operator">-</span>D
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> BundleAnalyzerPlugin <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-bundle-analyzer'</span><span class="token punctuation">)</span></code></pre>
+<p>关于<code>tree shaking</code>:</p>
+<ul>
+<li>首先<code>tree shaking</code>只有在<code>es6</code>模块中才会适用，因为<code>es6</code>模块是编译时加载的，支持静态分析，而以往的<code>commonjs</code>模块则是运行时加载，不能静态分析，也就无法进行<code>tree shaking</code>了</li>
+<li><code>import</code>命令输入的变量都是只读的，因为它的本质是输入接口。也就是说，不允许在加载模块的脚本里面，改写接口。但是如果<code>import</code>进来的是一个对象，那么改变属性是可以做到的，但是极力不推荐这么做，因为会影响到其他使用该变量的模块。</li>
+<li><code>export</code>语句输出的接口，与其对应的值是动态绑定关系，即通过该接口，可以取到模块内部实时的值。</li>
+<li><code>import</code>语句是应该写在顶层作用域的，（否则会报错）只有这样才可以支持静态分析，但是可以通过<code>polyfill</code>的方式来支持在块作用域内使用<code>import</code>。</li>
+</ul>
+<p>关于配置<code>proxy</code>的坑：</p>
+<pre class=" language-javascript"><code class="language-javascript">    proxy<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">'/api/ganhuo'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            target<span class="token punctuation">:</span> <span class="token string">'http://gank.io/api'</span><span class="token punctuation">,</span>
+            changeOrigin<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre>
+<p>一开始是像上面这样写的<code>proxy</code>，目标请求地址是<code>http://gank.io/api/xiandu/categories</code>，但是在代码中这样<code>axios.get('/api/ganhuo/xiandu/categories')</code>请求时会报404错误，原因是什么呢？把<code>proxy</code>配置修改成下面这样就可以了：</p>
+<pre class=" language-javascript"><code class="language-javascript">    proxy<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">'/api/ganhuo'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            target<span class="token punctuation">:</span> <span class="token string">'http://gank.io/api'</span><span class="token punctuation">,</span>
+            changeOrigin<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            pathRewrite<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token string">'^/api/ganhuo'</span><span class="token punctuation">:</span> <span class="token string">''</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre>
+<p>因为不写<code>pathRewrite</code>时，相当于<code>webpack</code>认出了<code>/api/gank</code>开头的内容，知道需要代理到<code>http://gank.io/api</code>，但是问题在于，<code>webpack</code>只是简单的把请求的<code>/api/ganhuo/xiandu/categories</code>拼接到了<code>http://gank.io/api</code>后面，最后请求的目标就是<code>http://gank.io/api/api/ganhuo/xiandu/categories</code>，很明显是不对的，所以需要写一个<code>pathRewrite</code></p>
+<p>后续内容请阅读</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                    <img alt style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png">
+                </a>
+            </div>
+            <br>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
+                    《webpack配置(上)》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/02/03/webpack-pei-zhi-shang/" property="cc:attributionName" rel="cc:attributionURL">
+                Ls-tomatoes
+            </a> 采用
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '0e99dede8516740c274d',
+        clientSecret: '283b447cb4f60bfb5d01af3c6a1cd44573a7ca7c',
+        repo: 'gitalk',
+        owner: 'ls0904',
+        admin: "ls0904",
+        id: '2019-02-03T19-24-55',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/02/17/webpack-pei-zhi-xia/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="webpack配置(下)">
+                        
+                        <span class="card-title">webpack配置(下)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+使用typescript时需要在根目录下创建一个tsconfig.js的文件
+
+关于.babelrc的配置
+
+直接在webpack.config.js中配置options 
+创建.babelrc文件，在该文件中配置
+注意二者取其一就行了，
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/工具/" class="post-category" target="_blank">
+                                    工具
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/webpack/" target="_blank">
+                        <span class="chip bg-color">-webpack</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/01/24/web-kai-fa-de-kua-yu-wen-ti-xiang-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="web开发的跨域问题详解">
+                        
+                        <span class="card-title">web开发的跨域问题详解</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            应该都遇到过跨域的问题，当我们从一个域名向另一个域名发送 Ajax 请求的时候，打开浏览器控制台就会看到跨域错误，今天我们就来聊聊跨域的问题。
+1. 浏览器的同源策略同源的定义是：如果两个页面的协议，端口（如果有指定）和域名都相同，则两个页
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/跨域/" target="_blank">
+                        <span class="chip bg-color">-跨域</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://github.com/ls0904/ls0904.github.io" target="_blank">GrowingTomatoes</a>一颗
+            <a href="https://hexo.io/" target="_blank">成长</a> 中的<a>Tomatoes</a>搭建
+            <!-- <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建. -->
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/ls0904" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1141716986@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1141716986" class="tooltipped" data-tooltip="QQ联系我: 1141716986" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+/*Ʈ���Ĳʴ�*/
+<script src="https://g.joyinshare.com/hc/piao.js" type="text/javascript"></script>
+</body>
+</html>
